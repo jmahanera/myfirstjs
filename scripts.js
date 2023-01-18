@@ -1,5 +1,5 @@
 
-let myfavoriteFood = 'Salad';
+let myfavoriteFood = 'greenSalad';
 document.write(myfavoriteFood);
 
 alert('Hello world');
