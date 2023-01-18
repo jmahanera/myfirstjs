@@ -1,3 +1,4 @@
+
 let myfavoriteFood = 'salad';
 document.write(myfavoriteFood);
 
