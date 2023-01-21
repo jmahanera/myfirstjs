@@ -1,2 +1,2 @@
-
+let pokemonlist = [];
 
