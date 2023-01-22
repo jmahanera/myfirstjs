@@ -1,4 +1,4 @@
-let pokemonlist = [ 
+let pokemonlist =[
     {name: 'Balbasaur',
     height: 12,
     types: 'grass', 'sand': 'poison'},
@@ -7,8 +7,8 @@ let pokemonlist = [
     types:  'grass', 'sand': 'poison'},
     {name: 'lickitung',
     height: 16, 
-    types: 'grass', 'sand': 'poison'}
-];
+    types: 'grass', 'sand': 'poison'}];
+
 
 
 
