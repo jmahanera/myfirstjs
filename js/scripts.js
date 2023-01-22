@@ -1,4 +1,5 @@
-
+    
+    
     let pokeMonlist =[
     {name: 'Balbasaur', height: 12, types: ['grass', 'poison', 'odor']},
     {name: 'Charmander', height: 18, types:  ['gass','fire', 'wings']},
@@ -8,6 +9,13 @@
 function getAll() {
     return pokeMonList;
 }
+
+function add(pokemon) {
+    pokemonList.push(pokemon)
+}
+
+
+
 
 
     
