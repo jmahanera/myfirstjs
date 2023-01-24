@@ -10,10 +10,7 @@ function add(pokemon) {
     pokemonList.push(pokemon);
   }
   
-  function getAll() {
-    return pokemonList;
-  }
-
+ 
 
   /* The for loop using console.log instead of document write because document write
   gives me an error due to the slow speed of my internet it said. The console list loop 
