@@ -14,7 +14,7 @@ function add(pokemon) {
     return pokemonList;
   }
 
-  let pokeMonlist =[
+  let pokemonList =[
     {name: 'Balbasaur', height: 12, types: ['grass', 'poison', 'odor']},
     {name: 'Charmander', height: 11, types:  ['gass','fire', 'wings']},
     {name: 'Squirtle', height: 12, types: ['slow', 'hard', 'shell']},
