@@ -30,7 +30,7 @@ function add(pokemon) {
 
   /* The for loop using console.log instead of document write because document write
   gives me an error due to the slow speed of my internet it said. The console list loop 
-  below worked perfectly.
+  below worked perfectly.*/
 
   for (let i = 0; i < pokemonList.length; i++) {        
     if (pokemonList[i].height >= 5) {
@@ -41,9 +41,9 @@ function add(pokemon) {
       console.log(pokemonList[i].name + " (height: " + pokemonList[i].height);
     }
   }
-  */
+  
 
-  // The for loop
+  /* The for loop
 for (let i = 0; i < pokemonList.length; i++) {        
     if (pokemonList[i].height >= 5) {
       document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + "m) - Wow, that is a big pokemon!" + "<br>");
@@ -53,7 +53,7 @@ for (let i = 0; i < pokemonList.length; i++) {
       document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + "m) - That is a small pokemon!" + "<br>");
     }
   }
-  
+  */
  
 
 
