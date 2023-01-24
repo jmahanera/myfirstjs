@@ -32,7 +32,7 @@
         if (pokemonList[i].height >= 5) {
           document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + "m) - Wow, that is a big pokemon!");
         } else if (pokemonList[i].height >= 1.6 && pokemonList[i].height < 5) {
-          document.write(pokemonList[i].name + " (height: " +pokemonList[i].height + "m) - That is a medium pokemon!" + "m) - That is a medium pokemon!");
+          document.write(pokemonList[i].name + " (height: " +pokemonList[i].height + "m) - That is a medium pokemon!");
         } else {
           document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + "m) - That is a small pokemon!");
         }
