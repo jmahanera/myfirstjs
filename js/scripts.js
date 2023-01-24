@@ -1,6 +1,6 @@
     
     
-    let repository =[
+    let pokemonList =[
         {name: 'Balbasaur', height: 12, types: ['grass', 'poison']},
         {name: 'Charmander', height: 2.5, types:  ['fire', 'wings']},
         {name: 'Squirtle', height: 1, types: ['slow', 'shell']},
