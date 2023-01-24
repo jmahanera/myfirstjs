@@ -12,8 +12,8 @@
       
      
     
-      /* The for loop using console.log instead of document write because document write
-      gives me an error due to the slow speed of my internet it said. The console list loop 
+      /* The for loop using console.log instead of document write because document.write
+      was giving me an error due to the slow speed of my internet it said. The console list loop 
       below worked perfectly.*/
     
       /*for (let i = 0; i < pokemonList.length; i++) {        
