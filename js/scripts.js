@@ -1,6 +1,6 @@
     
     
-    let pokeMonlist =[
+    let pokemonList =[
     {name: 'Balbasaur', height: 12, types: ['grass', 'poison', 'odor']},
     {name: 'Charmander', height: 11, types:  ['gass','fire', 'wings']},
     {name: 'Squirtle', height: 12, types: ['slow', 'hard', 'shell']},
@@ -14,19 +14,6 @@ function add(pokemon) {
     return pokemonList;
   }
 
-  let pokemonList =[
-    {name: 'Balbasaur', height: 12, types: ['grass', 'poison', 'odor']},
-    {name: 'Charmander', height: 11, types:  ['gass','fire', 'wings']},
-    {name: 'Squirtle', height: 12, types: ['slow', 'hard', 'shell']},
-];
-
-function add(pokemon) {
-    pokemonList.push(pokemon);
-  }
-  
-  function getAll() {
-    return pokemonList;
-  }
 
   /* The for loop using console.log instead of document write because document write
   gives me an error due to the slow speed of my internet it said. The console list loop 
