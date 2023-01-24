@@ -30,11 +30,11 @@
       /* The for loop using document.write, i get errors due to poor internet connection*/
     for (let i = 0; i < pokemonList.length; i++) {        
         if (pokemonList[i].height >= 5) {
-          console.log(pokemonList[i].name + " (height: " + pokemonList[i].height + "m) - Wow, that is a big pokemon!");
+          document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + "m) - Wow, that is a big pokemon!");
         } else if (pokemonList[i].height >= 1.6 && pokemonList[i].height < 5) {
-          console.log(pokemonList[i].name + " (height: " +pokemonList[i].height + "m) - That is a medium pokemon!" + "m) - That is a medium pokemon!");
+          document.write(pokemonList[i].name + " (height: " +pokemonList[i].height + "m) - That is a medium pokemon!" + "m) - That is a medium pokemon!");
         } else {
-          console.log(pokemonList[i].name + " (height: " + pokemonList[i].height + "m) - That is a small pokemon!");
+          document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + "m) - That is a small pokemon!");
         }
       }
       
