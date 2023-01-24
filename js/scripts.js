@@ -27,7 +27,7 @@
       }*/
       
     
-      /* The for loop using document.write, i get errors due to poor internet connection*/
+      // The for loop using document.write.
     for (let i = 0; i < pokemonList.length; i++) {        
         if (pokemonList[i].height >= 5) {
           document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + "m) - Wow, that is a big pokemon!");
