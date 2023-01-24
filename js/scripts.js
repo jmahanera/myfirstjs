@@ -25,7 +25,7 @@
           console.log(pokemonList[i].name + " (height: " + pokemonList[i].height);
         }
       }*/
-      a
+      
     
       /* The for loop using document.write, i get errors due to poor internet connection*/
     for (let i = 0; i < pokemonList.length; i++) {        
