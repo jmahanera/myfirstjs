@@ -16,7 +16,7 @@ function add(pokemon) {
   gives me an error due to the slow speed of my internet it said. The console list loop 
   below worked perfectly.*/
 
-  for (let i = 0; i < pokemonList.length; i++) {        
+  /*for (let i = 0; i < pokemonList.length; i++) {        
     if (pokemonList[i].height >= 5) {
       console.log(pokemonList[i].name + " (height: " + pokemonList[i].height );
     } else if (pokemonList[i].height >= 1.6 && pokemonList[i].height < 5) {
@@ -24,20 +24,20 @@ function add(pokemon) {
     } else {
       console.log(pokemonList[i].name + " (height: " + pokemonList[i].height);
     }
-  }
-  
+  }*/
+  a
 
-  /* The for loop
+  /* The for loop using document.write, i get errors due to poor internet connection*/
 for (let i = 0; i < pokemonList.length; i++) {        
     if (pokemonList[i].height >= 5) {
-      document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + "m) - Wow, that is a big pokemon!" + "<br>");
+      console.log(pokemonList[i].name + " (height: " + pokemonList[i].height + "m) - Wow, that is a big pokemon!");
     } else if (pokemonList[i].height >= 1.6 && pokemonList[i].height < 5) {
-      document.write(pokemonList[i].name + " (height: " +pokemonList[i].height + "m) - That is a medium pokemon!" + "m) - That is a medium pokemon!" + "<br>");
+      console.log(pokemonList[i].name + " (height: " +pokemonList[i].height + "m) - That is a medium pokemon!" + "m) - That is a medium pokemon!");
     } else {
-      document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + "m) - That is a small pokemon!" + "<br>");
+      console.log(pokemonList[i].name + " (height: " + pokemonList[i].height + "m) - That is a small pokemon!");
     }
   }
-  */
+  
  
 
 
