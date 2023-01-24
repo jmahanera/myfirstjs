@@ -2,8 +2,8 @@
     
     let repository =[
         {name: 'Balbasaur', height: 12, types: ['grass', 'poison', 'odor']},
-        {name: 'Charmander', height: 11, types:  ['gass','fire', 'wings']},
-        {name: 'Squirtle', height: 12, types: ['slow', 'hard', 'shell']},
+        {name: 'Charmander', height: 1.6, types:  ['gass','fire', 'wings']},
+        {name: 'Squirtle', height: 1, types: ['slow', 'hard', 'shell']},
     ];
     
     function add(pokemon) {
