@@ -28,7 +28,7 @@
       
     
       // The for loop using document.write.
-    for (let i = 0; i < pokemonList.length; i++) {        
+    /*for (let i = 0; i < pokemonList.length; i++) {        
         if (pokemonList[i].height >= 5) {
           document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + "m) - Wow, that is a big pokemon!");
         } else if (pokemonList[i].height >= 1.6 && pokemonList[i].height < 5) {
@@ -36,7 +36,11 @@
         } else {
           document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + "m) - That is a small pokemon!");
         }
-      }
+      }*/
+
+      pokemonList.forEach(function(pokemon){
+        console.log(pokemon.name + 'is' + pokemon.height + pokemon.types );
+      });
       
      
     
