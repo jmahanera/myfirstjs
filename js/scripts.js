@@ -55,7 +55,7 @@
         listItem.appendChild(button);
         ul.appendChild(listItem);
       });*/
-        pokemonRepository.getAll().forEach(function(pokemon){
+        
         let pokemonList = document.querySelector(".pokemonList");
         let listItem = document.createElement('li');
         let button = document.createElement('button');
@@ -66,8 +66,5 @@
         // listens for a button click and the logs to the console the details (why do I need to put this under addListItem)
         button.addEventListener("click", function(Event) {
         showDetails(pokemon);
-        })}     
-    
-
-
-   //load a list of pokemon from api. Promise fetch function. 
+        });
+      
