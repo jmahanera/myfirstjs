@@ -52,7 +52,8 @@
         let button = document.createElement('button');
         button.innerText = 'Charmander';
         button.classList.add('selected');
-        pokemonList.appendChild(button);
+        listItem.appendChild(button);
+        ul.appendChild(listItem);
       });
       
      
