@@ -44,7 +44,7 @@
         }
       }*/
 
-      pokemonRepository.getAll().forEach(function(pokemon){
+      /*pokemonRepository.getAll().forEach(function(pokemon){
         let pokemonList = document.querySelector('.pokemonList');
         //console.log(pokemon.name + 'is' + pokemon.height + pokemon.types );
         //document.write()
@@ -54,7 +54,21 @@
         button.classList.add('selected');
         listItem.appendChild(button);
         ul.appendChild(listItem);
-      });
+      });*/
+
+      function addListItem (pokemon) {
+        let pokemonList = document.querySelector(".pokemon-list");
+        let listPokemon = document.createElement('li');
+        let button = document.createElement('button');
+        button.innerText = pokemon.name;
+        button.classList.add("button-class");
+        listPokemon.appendChild(button);
+        pokemonList.appendChild(listPokemon);
+        // listens for a button click and the logs to the console the details (why do I need to put this under addListItem)
+        button.addEventListener("click", function(Event) {
+        showDetails(pokemon);
+       });
+    }
       
      
     
