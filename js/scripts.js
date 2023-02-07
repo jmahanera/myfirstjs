@@ -45,8 +45,14 @@
       }*/
 
       pokemonRepository.getAll().forEach(function(pokemon){
+        let pokemonList = document.querySelector('.pokemonList');
         //console.log(pokemon.name + 'is' + pokemon.height + pokemon.types );
-        document.write(pokemon.name + pokemon.height + pokemon.types)
+        //document.write()
+        let listItem = document.createElement('li');
+        let button = document.createElement('button');
+        button.innerText = 'Charmander';
+        button.classList.add('selected');
+        pokemonList.appendChild(button);
       });
       
      
