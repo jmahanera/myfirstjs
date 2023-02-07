@@ -57,13 +57,13 @@
       });*/
 
       function addListItem (pokemon) {
-        let pokemonList = document.querySelector(".pokemon-list");
-        let listPokemon = document.createElement('li');
+        let pokemonList = document.querySelector(".pokemonList");
+        let listItem = document.createElement('li');
         let button = document.createElement('button');
-        button.innerText = pokemon.name;
+        button.innerText = 'pokemon.name';
         button.classList.add("button-class");
-        listPokemon.appendChild(button);
-        pokemonList.appendChild(listPokemon);
+        listItem.appendChild(button);
+        ul.appendChild(pokemonList);
         // listens for a button click and the logs to the console the details (why do I need to put this under addListItem)
         button.addEventListener("click", function(Event) {
         showDetails(pokemon);
