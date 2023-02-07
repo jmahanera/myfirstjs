@@ -19,7 +19,7 @@
     border: 5px red solid;
   }
 
-  .selected {
+  .pokemonList {
     align-items: center;
     justify-content: center;
     position: fixed;
