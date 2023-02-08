@@ -56,7 +56,7 @@
         ul.appendChild(listItem);
       });*/
         
-        let pokemonList = document.querySelector(".pokemon-list");
+        let pokemonList = document.querySelector(".pokemonList");
         let listItem = document.createElement('li');
         let button = document.createElement('button');
         button.innerText = 'pokemon.name';
