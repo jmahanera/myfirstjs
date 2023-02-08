@@ -44,27 +44,28 @@
         }
       }*/
 
-      /*pokemonRepository.getAll().forEach(function(pokemon){
-        let pokemonList = document.querySelector('.pokemonList');
+      pokemonRepository.getAll().forEach(function(pokemon){
+        let element = document.querySelector('.pokemon-list');
         //console.log(pokemon.name + 'is' + pokemon.height + pokemon.types );
-        //document.write()
-        let listItem = document.createElement('li');
-        let button = document.createElement('button');
-        button.innerText = 'Charmander';
-        button.classList.add('selected');
-        listItem.appendChild(button);
-        ul.appendChild(listItem);
-      });*/
         
-        let pokemonList = document.querySelector(".pokemonList");
+        /*let listItem = document.createElement('li');
+        let button = document.createElement('button');
+        button.innerText = 'pokemon-name';
+        button.classList.add('button');
+        listItem.appendChild(button);
+        ul.appendChild(listItem);*/
+      
+        
+        let pokemonList = document.querySelector('.container');
         let listItem = document.createElement('li');
         let button = document.createElement('button');
-        button.innerText = 'pokemon.name';
-        button.classList.add("button-class");
-        listItem.appendChild(button);
-        ul.appendChild(pokemonList);
+        button.innerText = 'pokemon.name';        
+        button.classList.add('button');
+        container.appendChild(button);
+        ul.appendChild(listItem);
+       // ul.appendChild(pokemonList);  
         // listens for a button click and the logs to the console the details (why do I need to put this under addListItem)
-        button.addEventListener("click", function(Event) {
+       /* button.addEventListener("click", function(Event) {
         showDetails(pokemon);
-        });
+        });*/
       
