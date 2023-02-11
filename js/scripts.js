@@ -36,8 +36,15 @@ function addListItem(pokemon){
     let target = event.target;
     target.classList.toggle('button-class');
     target.classList.toggle('button');
+  
   });
 }
+
+function showDetails(pokemon) {
+  console.log('Name: '+ pokemon.name+ ', '+ 'Height: '+ pokemon.height+ 'cm, '+ 'Types: '+ pokemon.type+ '.');
+}
+
+
 
 return {
   add: add,
@@ -54,33 +61,17 @@ pokemonRepository.getAll().forEach(function (pokemon) {
 pokemonRepository.addListItem(pokemon);
 });
 
-// add list item
-/*function addListItem(pokemon) {
-  // organizes funtions and selectors
-  let pokemonListFolder= document.querySelector('.pokemon-list')
-  let createListItem= document.createElement('li');
-  let button= document.createElement('button');
-  // creates button for each pokemon added
-  button.innerText= pokemon.name;
-  document.querySelector('.pokemon-list');
-  pokemonListFolder.appendChild(createListItem);
-  pokemonListFolder.lastElementChild.appendChild(button);
-  let buttonSelect= pokemonListFolder.lastElementChild.querySelector('button');
-  buttonSelect.classList.add(pokemon.typeClass);
-  //creates an even listener to every button
-  buttonSelect.addEventListener('click', function () {
-    showDetails(pokemon);
-});
-}
+
+  /*buttonSelect.addEventListener('click', function () {
+  showDetails(pokemonRepository);
+});*/
 
 
  
-function showDetails(pokemon) {
-  console.log('Name: '+ pokemon.name+ ', '+ 'Height: '+ pokemon.height+ 'cm, '+ 'Types: '+ pokemon.types+ '.');
-}
+
 
 // loop to creat button for each pokemon
-pokemonRepository.getAll().forEach(function(pokemon) {
+/*pokemonRepository.getAll().forEach(function(pokemon) {
   pokemonRepository.addListItem(pokemon);
 });*/
 
