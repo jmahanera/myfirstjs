@@ -36,13 +36,13 @@ function addListItem(pokemon){
     let target = event.target;
     target.classList.toggle('button-class');
     target.classList.toggle('button');
+    showDetails(pokemon)
   
   });
 }
 
-function showDetails(pokemon) {
-  console.log('Name: '+ pokemon.name+ ', '+ 'Height: '+ pokemon.height+ 'cm, '+ 'Types: '+ pokemon.type+ '.');
-}
+ 
+
 
 
 
