@@ -36,7 +36,8 @@ function addListItem(pokemon){
     let target = event.target;
     target.classList.toggle('button-class');
     target.classList.toggle('button');
-    showDetails(pokemon)
+    buttonSelect.showDetails(pokemon)
+    
   
   });
 }
@@ -63,7 +64,7 @@ pokemonRepository.addListItem(pokemon);
 
 
   /*buttonSelect.addEventListener('click', function () {
-  showDetails(pokemonRepository);
+  showDetails(pokemon);
 });*/
 
 
