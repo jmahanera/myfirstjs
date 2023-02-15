@@ -113,3 +113,39 @@ let pokemonRepository = (function() {
       pokemonRepository.addListItem(pokemon);
     });
   });
+
+  let repository = (function () {
+    let pokemonList = [];
+    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  
+    // Other functions remain here
+  
+    async function loadList() {
+      try {
+        const response = await fetch(apiUrl);
+        const json = await response.json();
+        json.results.forEach(function (item) {
+          let pokemon = {
+            name: item.name,
+            detailsUrl: item.url
+          };
+          add(pokemon);
+        });
+      } catch (e) {
+        console.error(e);
+      }
+    }
+  
+    return {
+      add: add,
+      getAll: getAll,
+      loadList: loadList
+    };
+  })();
+  
+  pokemonRepository.loadList().then(function() {
+    // Now the data is loaded!
+    pokemonRepository.getAll().forEach(function(pokemon){
+      pokemonRepository.addListItem(pokemon);
+    });
+  });
