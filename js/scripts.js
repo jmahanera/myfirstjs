@@ -151,7 +151,9 @@ return fetch(url).then(function (response) {
   console.log(pokemonRepository.getAll());
   
   // Call the addListItem function for each pokemon in the repository
- 
+  pokemonRepository.getAll().forEach(function (pokemon) {
+    pokemonRepository.addListItem(pokemon);
+    });
 
 
   //pokemonRepository.loadList().then(function() {
