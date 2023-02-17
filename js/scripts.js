@@ -59,27 +59,27 @@ let pokemonRepository = (function () {
   function loadList() {
     return fetch(apiUrl).then((response) => response.json()).then((json) => {
       json.results.forEach((item) => {
-        const pokemon = {
+        let pokemon = {
           name: item.name,
           detailsUrl: item.url,
         };
         add(pokemon);
       });
     }).catch((e) => {
-      console.error(e);
+      console.log(data);
     });
   }
 
   // load pokemon data details on selected pokemon
   function loadDetails(pokemon) {
-    const url = pokemon.detailsUrl;
+     url = pokemon.detailsUrl;
     return fetch(apiUrl).then((response) => response.json()).then((details) => {
       // add the details to the item
       pokemon.imageUrl = details.sprites.front_default;
       pokemon.height = details.height;
       pokemon.types = details.types;
     }).catch((e) => {
-      console.error(e);
+      console.log(data);
     });
   }
 
@@ -88,14 +88,14 @@ let pokemonRepository = (function () {
     const pokemonList2 = document.querySelector('.pokemon-list');
     const pokemonElements = pokemonList2.getElementsByTagName('li');
     for (let i = 0; i < pokemonElements.length; i++) {
-      pokemonElements[i].classList.remove('hide');
+      pokemonElements[i].classList.remove();
     }
 
     for (let i = 0; i < pokemonElements.length; i++) {
       if (input.value === '') {
-        pokemonElements[i].firstElementChild.classList.remove('hide');
+        pokemonElements[i].firstElementChild.classList.remove();
       } else if (pokemonElements[i].firstElementChild.innerText.indexOf(input.value)) {
-        pokemonElements[i].firstElementChild.classList.add('hide');
+        pokemonElements[i].firstElementChild.classList.add();
       }
     }
 
