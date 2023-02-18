@@ -66,7 +66,7 @@ let pokemonRepository = (function () {
         add(pokemon);
       });
     }).catch((e) => {
-      console.log(data);
+      console.error(e);
     });
   }
 
@@ -79,7 +79,7 @@ let pokemonRepository = (function () {
       pokemon.height = details.height;
       pokemon.types = details.types;
     }).catch((e) => {
-      console.log(data);
+      console.error(e);
     });
   }
 
