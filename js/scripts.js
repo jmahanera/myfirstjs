@@ -142,7 +142,17 @@ function loadAll() {
     };
     }());
 
-    fetch('https://pokeapi.co/api/v2/pokemon/?limit=20', {
+
+
+    fetch('https://pokeapi.co/api/v2/pokemon/?limit=20').then(function (response) {
+  return response.json(); // This returns a promise!
+}).then(function (pokemonList) {
+  console.log(pokemonList); // The actual JSON response
+}).catch(function () {
+  // Error
+});
+
+    /*fetch('https://pokeapi.co/api/v2/pokemon/?limit=20', {
   method: 'GET'
 }).then(function (response) {
   return response.json(); // This returns a promise!
@@ -150,7 +160,7 @@ function loadAll() {
   console.log(json); // The actual JSON response
 }).catch(function () {
   // Error
-});
+});*/
 
     /*pokemonRepository.loadList().then(function() {
       pokemonRepository.getAll().forEach(function () {
