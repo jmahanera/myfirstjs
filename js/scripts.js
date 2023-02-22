@@ -1,6 +1,6 @@
     let pokemonRepository = (function () {
       let pokemonList = [];
-      let apiUrl = ('https://pokeapi.co/api/v2/pokemon/?limit=20');
+      let apiUrl = ('https://pokeapi.co/api/v2/pokemon/?limit=50');
     
       
 
@@ -144,7 +144,7 @@ function loadAll() {
 
 
 
-    fetch('https://pokeapi.co/api/v2/pokemon/?limit=20').then(function (response) {
+    fetch('https://pokeapi.co/api/v2/pokemon/?limit=50').then(function (response) {
   return response.json(); // This returns a promise!
 }).then(function (pokemonList) {
   console.log(pokemonList); // The actual JSON response
@@ -152,21 +152,8 @@ function loadAll() {
   // Error
 });
 
-    /*fetch('https://pokeapi.co/api/v2/pokemon/?limit=20', {
-  method: 'GET'
-}).then(function (response) {
-  return response.json(); // This returns a promise!
-}).then(function (json) {
-  console.log(json); // The actual JSON response
-}).catch(function () {
-  // Error
-});*/
 
-    /*pokemonRepository.loadList().then(function() {
-      pokemonRepository.getAll().forEach(function () {
-          pokemonRepository.addListItem();
-      });
-    })*/
+
 
  
 
