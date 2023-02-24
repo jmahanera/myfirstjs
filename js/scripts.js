@@ -1,16 +1,23 @@
 let pokemonRepository = (function () {
   let pokemonList = [];
   let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=50";
+  
+
+  
 
   //getAll function to return all of the items in the pokemonList array
   function getAll() {
     return pokemonList;
-  }
+  };
+
+  
 
   //add pokemon function via push
   function add(pokemon) {
     pokemonList.push(pokemon);
   }
+
+ 
 
   
 
@@ -46,12 +53,35 @@ let pokemonRepository = (function () {
   }
 
   //adds pokemon with .push, if object
-  function add(pokemon) {
-    if ((typeof pokemon === "object") & ("name" in pokemon)) {
-      pokemonList.push(pokemon);
-    }
+function add(pokemon) {
+  if ((typeof pokemon === "object") && ("name" in pokemon) && ("height" in pokemon)) 
+  {
+    pokemonList.push(pokemon);
+  }
+}
+
+  //load pokemon details - promise (image, height, type)
+  function loadDetails(item) {
+    // defining url from json results and then fetching those details
+    let url = item.detailsUrl;
+    return fetch(url)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (details) {
+        // details coming from api (all the info on each pokemon) after selecting which detail is needed (sprites, height, types-array)
+        item.height = details.height;
+        item.types = details.types;
+        item.imageUrl = details.sprites.front_default;
+        item.weight = details.weight;
+        // any errors will be cought here
+      })
+      .catch(function (e) {
+        console.error(e);
+      });
   }
 
+  
   //load a list of pokemon from api. Promise fetch function.
   function loadList() {
     return fetch(apiUrl)
@@ -64,6 +94,7 @@ let pokemonRepository = (function () {
         json.results.forEach(function (item) {
           let pokemon = {
             name: item.name,
+            height: 10, // 10 can be replaced with the desired height value
             detailsUrl: item.url,
             
           };
@@ -76,27 +107,9 @@ let pokemonRepository = (function () {
         console.error(e);
       });
   }
+  
 
-  //load pokemon details - promise (image, height, type)
-  function loadDetails(item) {
-    // defining url from json results and then fetching those details
-    let url = item.detailsUrl;
-    return fetch(url)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (details) {
-        // details coming from api (all the info on each pokemon) after selecting which detail is needed (sprites, height, types-array)
-        item.imageUrl = details.sprites.front_default;
-        item.types = details.types;
-        item.weight = details.weight;
-        // any errors will be cought here
-      })
-      .catch(function (e) {
-        console.error(e);
-      });
-  }
-
+  
   function loadAll() {
     loadList().then(function () {
       getAll().forEach(function (pokemon) {
@@ -110,12 +123,14 @@ let pokemonRepository = (function () {
     getAll: getAll,
     add: add,
     addListItem: addListItem,
-    loadList: loadList,
     loadDetails: loadDetails,
+    loadList: loadList,
     showDetails: showDetails,
     loadAll: loadAll,
   };
 })();
+
+
 
 // fetch("https://pokeapi.co/api/v2/pokemon/?limit=50")
 //   .then(function (response) {
@@ -127,6 +142,8 @@ let pokemonRepository = (function () {
 //   .catch(function () {
 //     // Error
 //   });
+
+
 
 pokemonRepository.loadList().then(function () {
   // Now the data is loaded!
