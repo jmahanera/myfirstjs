@@ -2,24 +2,15 @@ let pokemonRepository = (function () {
   let pokemonList = [];
   let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=50";
   
-
-  
-
   //getAll function to return all of the items in the pokemonList array
   function getAll() {
     return pokemonList;
   };
 
-  
-
   //add pokemon function via push
   function add(pokemon) {
     pokemonList.push(pokemon);
   }
-
- 
-
-  
 
   // Function to add a list item for each pokemon in the repository
   function addListItem(pokemon) {
@@ -92,14 +83,11 @@ function showModal(title, img, text) {
   let contentElement = document.createElement('p');
   contentElement.innerText = text;
   
-
   modal.appendChild(closeButtonElement);
   modal.appendChild(titleElement);
   modal.appendChild(myImage);
   modal.appendChild(contentElement);
   modalContainer.appendChild(modal);
-
-
 
   modalContainer.classList.add('is-visible');
   modalContainer.addEventListener('click', (e) => {
@@ -170,8 +158,6 @@ window.addEventListener('keydown', (e) => {
       });
   }
   
-
-  
   function loadAll() {
     loadList().then(function () {
       getAll().forEach(function (pokemon) {
@@ -191,21 +177,6 @@ window.addEventListener('keydown', (e) => {
     loadAll: loadAll,
   };
 })();
-
-
-
-// fetch("https://pokeapi.co/api/v2/pokemon/?limit=50")
-//   .then(function (response) {
-//     return response.json(); // This returns a promise!
-//   })
-//   .then(function (pokemonList) {
-//     console.log(pokemonList); // The actual JSON response
-//   })
-//   .catch(function () {
-//     // Error
-//   });
-
-
 
 pokemonRepository.loadList().then(function () {
   // Now the data is loaded!
