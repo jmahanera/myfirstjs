@@ -79,10 +79,14 @@ let pokemonRepository = (function () {
     let pokemonHeight = $("<p>" + "Height : " + pokemon.height + "</p>");
     modalBody.append(pokemonHeight);
   }
+
+
   $('[data-toggle="modal"]').on('click', function(){
     let targetSelector = $(this).attr('data-target');
     $(targetSelector).modal('show'); // Bootstrap’s own function to make the modal appear
   });
+
+
   // Private function to hide the modal window
   function hideModal() {
     let modalContainer = document.querySelector('#modal-container');
