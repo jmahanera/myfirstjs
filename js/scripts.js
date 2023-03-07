@@ -1,186 +1,148 @@
+// Create an IIFE (Immediately Invoked Function Expression) that returns an object containing methods for managing a list of Pokemon
 let pokemonRepository = (function () {
+  // Private variables to store Pokemon list and API URL
   let pokemonList = [];
-  let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=50";
-  
-  //getAll function to return all of the items in the pokemonList array
-  function getAll() {
-    return pokemonList;
-  };
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=50';
 
-  //add pokemon function via push
+  // Private function to add a Pokemon to the list
   function add(pokemon) {
     pokemonList.push(pokemon);
   }
 
-  // Function to add a list item for each pokemon in the repository
+  // Private function to get the entire Pokemon list
+  function getAll() {
+    return pokemonList;
+  }
+
+  // Private function to add a new list item for a Pokemon
   function addListItem(pokemon) {
-    // Select the pokemon list element
-    let pokemonList = document.querySelector(".pokemon-list");
+    // Get the DOM element for the list container
+    let pokemonListFolder = document.querySelector(".pokemon-list");
+
     // Create a new list item element
-    let listPokemon = document.createElement("li");
-    // Create a button element
+    let createlistItem = document.createElement("li");
+    createlistItem.classList.add("list-group-item");
+
+    // Create a new button element to display the Pokemon's name
     let button = document.createElement("button");
+    button.innerText= pokemon.name;
+    button.classList.add("btn-block");
+    button.classList.add("btn-primary");
+    button.classList.add("pokemon-button");
+    button.setAttribute('data-toggle', 'modal');
+    button.setAttribute('data-target', '#exampleModal');
 
-    // Set the text of the button to the uppercase pokemon name
-    button.innerText = pokemon.name.toUpperCase();
-    // Add a class to the button
-    button.classList.add("button-class");
-    // Append the button to the list item
-    listPokemon.appendChild(button);
-    // Append the list item to the pokemon list
-    pokemonList.appendChild(listPokemon);
+    // Set the classes for the list item element
+    createlistItem.classList.add('col-xl-3');
+    createlistItem.classList.add('col-lg-4');
+    createlistItem.classList.add('col-md-6');
 
-    // Add a click event listener to the button
-    button.addEventListener("click", () => {
-      // When the button is clicked, show the details of the pokemon
+    // Add the button element to the list item element
+    createlistItem.appendChild(button);
+
+    // Add the list item element to the list container element
+    pokemonListFolder.appendChild(createlistItem);
+
+    // Add an event listener to the button to show the Pokemon's details when clicked
+    button.addEventListener('click', function () {
       showDetails(pokemon);
     });
   }
-
-  // Function to log the details of a pokemon
- /* function showDetails(pokemon) {
-    // Log the name, height, and type of the pokemon
-    console.log(pokemon);
-  }*/
-
+    
+  // Private function to show the details of a Pokemon
   function showDetails(pokemon) {
+    // Load the details of the Pokemon, then show them in a modal window
     loadDetails(pokemon).then(function () {
-      showModal(pokemon.name, pokemon.imageUrl, 'Height: ' + pokemon.height);
+      showModal(pokemon);
     });
   }
 
-  
-  //adds pokemon with .push, if object
-/*function add(pokemon) {
-  if ((typeof pokemon === "object") && ("name" in pokemon) && ("height" in pokemon)) 
-  {
-    pokemonList.push(pokemon);
+  // Private function to show a modal window with the details of a Pokemon
+  function showModal(pokemon) {
+    let modalBody = $(".modal-body");
+    let modalTitle = $(".modal-title");
+
+    // Clear the contents of the modal window
+    modalTitle.empty();
+    modalBody.empty();
+
+    // Create a new element for the Pokemon's name and add it to the modal window
+    let pokemonName = $("<h1>" + pokemon.name + "</h1>");
+    modalTitle.append(pokemonName);
+
+    // Create a new image element for the Pokemon's picture and add it to the modal window
+    let pokemonImage = $('<img class="modal-img" style="width:50%">');
+    pokemonImage.attr("src", pokemon.imageUrl);
+    modalBody.append(pokemonImage);
+
+    // Create a new element for the Pokemon's height and add it to the modal window
+    let pokemonHeight = $("<p>" + "Height : " + pokemon.height + "</p>");
+    modalBody.append(pokemonHeight);
   }
-}*/
+  $('[data-toggle="modal"]').on('click', function(){
+    let targetSelector = $(this).attr('data-target');
+    $(targetSelector).modal('show'); // Bootstrap’s own function to make the modal appear
+  });
+  // Private function to hide the modal window
+  function hideModal() {
+    let modalContainer = document.querySelector('#modal-container');
+    modalContainer.classList.remove('is-visible');
+  }
 
-function showModal(title, img, text) {
-  let modalContainer = document.querySelector('#modal-container');
-
-  // Clear all existing modal content
-  modalContainer.innerHTML = '';
-
-  let modal = document.createElement('div');
-  modal.classList.add('modal');
-
-  // Add the new modal content
-  let closeButtonElement = document.createElement('button');
-  closeButtonElement.classList.add('modal-close');
-  closeButtonElement.innerText = 'Close';
-  closeButtonElement.addEventListener('click', hideModal);
-
-  let titleElement = document.createElement('h1');
-  titleElement.innerText = title;
-
-  let myImage = document.createElement('img');
-    myImage.innerText = img
-    myImage.src = img
-
-  let contentElement = document.createElement('p');
-  contentElement.innerText = text;
+  // Add an event listener to hide the modal window when the Escape key is pressed
   
-  modal.appendChild(closeButtonElement);
-  modal.appendChild(titleElement);
-  modal.appendChild(myImage);
-  modal.appendChild(contentElement);
-  modalContainer.appendChild(modal);
 
-  modalContainer.classList.add('is-visible');
-  modalContainer.addEventListener('click', (e) => {
-    // Since this is also triggered when clicking INSIDE the modal
-    // We only want to close if the user clicks directly on the overlay
-    let target = e.target;
-    if (target === modalContainer) {
-      hideModal();
+
+  window.addEventListener('keydown', (e) => {
+    let modalContainer = document.querySelector('#modal-container');
+    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+      hideModal();  
     }
   });
-}
-function hideModal() {
-  let modalContainer = document.querySelector('#modal-container');
-  modalContainer.classList.remove('is-visible');
-}
-window.addEventListener('keydown', (e) => {
-  let modalContainer = document.querySelector('#modal-container');
-  if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-    hideModal();  
-  }
-});
-
-  //load pokemon details - promise (image, height, type)
-  function loadDetails(item) {
-    // defining url from json results and then fetching those details
-    let url = item.detailsUrl;
-    return fetch(url)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (details) {
-        // details coming from api (all the info on each pokemon) after selecting which detail is needed (sprites, height, types-array)
-        item.height = details.height;
-        item.types = details.types;
-        item.imageUrl = details.sprites.front_default;
-        item.weight = details.weight;
-        // any errors will be cought here
-      })
-      .catch(function (e) {
-        console.error(e);
-      });
-  }
 
   
-  //load a list of pokemon from api. Promise fetch function.
+
   function loadList() {
-    return fetch(apiUrl)
-      .then(function (response) {
-        // convert response to json
-        return response.json();
-      })
-      .then(function (json) {
-        // api uses 'results' for array of pokemon. Each result, we are calling item. For each item, we assign keys to parameters (items from api)
-        json.results.forEach(function (item) {
-          let pokemon = {
-            name: item.name,
-            height: 10, // 10 can be replaced with the desired height value
-            detailsUrl: item.url,
-            
-          };
-          // add function which pushes pokemon if it is object, and has name
-          add(pokemon);
-        });
-        // if any error occurs, it will be cought right here
-      })
-      .catch(function (e) {
-        console.error(e);
+    return fetch(apiUrl).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      json.results.forEach(function (item) {
+        let pokemon = {
+          name: item.name,
+          detailsUrl: item.url
+        };
+        add(pokemon);
       });
+    }).catch(function (e) {
+      console.error(e);
+    })
   }
-  
-  function loadAll() {
-    loadList().then(function () {
-      getAll().forEach(function (pokemon) {
-        addListItem(pokemon);
-      });
+  function loadDetails(item) {
+    let url = item.detailsUrl;
+    return fetch(url).then(function (response) {
+      return response.json();
+    }).then(function (details) {
+      // Now we add the details to the item
+      item.imageUrl = details.sprites.front_default;
+      item.height = details.height;
+      item.types = details.types;
+    }).catch(function (e) {
+      console.error(e);
     });
   }
 
-  // all functions to return
   return {
-    getAll: getAll,
     add: add,
+    getAll: getAll,
     addListItem: addListItem,
-    loadDetails: loadDetails,
-    loadList: loadList,
     showDetails: showDetails,
-    loadAll: loadAll,
+    loadList: loadList,
+    loadDetails: loadDetails,
+    showModal: showModal
   };
 })();
-
-pokemonRepository.loadList().then(function () {
-  // Now the data is loaded!
-  pokemonRepository.getAll().forEach(function (pokemon) {
+pokemonRepository.loadList().then(function() {
+  pokemonRepository.getAll().forEach(function(pokemon){
     pokemonRepository.addListItem(pokemon);
   });
 });
