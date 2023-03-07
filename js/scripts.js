@@ -75,10 +75,14 @@ let pokemonRepository = (function () {
     pokemonImage.attr("src", pokemon.imageUrl);
     modalBody.append(pokemonImage);
 
+    
+
     // Create a new element for the Pokemon's height and add it to the modal window
     let pokemonHeight = $("<p>" + "Height : " + pokemon.height + "</p>");
     modalBody.append(pokemonHeight);
   }
+
+ 
 
 
   $('[data-toggle="modal"]').on('click', function(){
@@ -94,9 +98,6 @@ let pokemonRepository = (function () {
   }
 
   // Add an event listener to hide the modal window when the Escape key is pressed
-  
-
-
   window.addEventListener('keydown', (e) => {
     let modalContainer = document.querySelector('#modal-container');
     if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
