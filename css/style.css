@@ -3,7 +3,7 @@
     font-size: 20px;
     border-radius: 8px;
     font-weight: 700;
-    background-color: hsl(45, 93%, 36%);
+    background-color: grey;
     border: none;
     border-right: 0.25vh solid rgba(0, 0, 0, 0.8);
     border-bottom: 0.5vh solid rgba(0, 0, 0, 0.8);
