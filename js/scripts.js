@@ -7,32 +7,6 @@ let pokemonRepository = (function () {
     function getAll() {
         return pokemonList;
     }
-    function addListItem(pokemon) {
-        let pokemonListFolder = document.querySelector(".pokemon-list");
-        let createlistItem = document.createElement("li");
-        createlistItem.classList.add("list-group-item");
-        let button = document.createElement("button");
-        button.innerText = pokemon.name;
-        button.classList.add("btn-block");
-        button.classList.add("btn-primary");
-        button.classList.add("pokemon-button");
-        button.setAttribute("data-toggle", "modal");
-        button.setAttribute("data-target", "#exampleModal");
-        createlistItem.classList.add("col-xl-3");
-        createlistItem.classList.add("col-lg-4");
-        createlistItem.classList.add("col-md-6");
-        createlistItem.appendChild(button);
-        pokemonListFolder.appendChild(createlistItem);
-        button.addEventListener("click", function () {
-            showDetails(pokemon);
-        });
-    }
-    function showDetails(pokemon) {
-        loadDetails(pokemon).then(function () {
-            showModal(pokemon);
-        });
-    }
-
 
     function searchPokemon() {
         const searchInput = document.getElementById("searchInput").value.toLowerCase();
@@ -69,6 +43,34 @@ let pokemonRepository = (function () {
             resultDiv.innerHTML = error.message;
           });
       }
+
+
+    function addListItem(pokemon) {
+        let pokemonListFolder = document.querySelector(".pokemon-list");
+        let createlistItem = document.createElement("li");
+        createlistItem.classList.add("list-group-item");
+        let button = document.createElement("button");
+        button.innerText = pokemon.name;
+        button.classList.add("btn-block");
+        button.classList.add("btn-primary");
+        button.classList.add("pokemon-button");
+        button.setAttribute("data-toggle", "modal");
+        button.setAttribute("data-target", "#exampleModal");
+        createlistItem.classList.add("col-xl-3");
+        createlistItem.classList.add("col-lg-4");
+        createlistItem.classList.add("col-md-6");
+        createlistItem.appendChild(button);
+        pokemonListFolder.appendChild(createlistItem);
+        button.addEventListener("click", function () {
+            showDetails(pokemon);
+        });
+    }
+    function showDetails(pokemon) {
+        loadDetails(pokemon).then(function () {
+            showModal(pokemon);
+        });
+    }
+
       
 
     function showModal(pokemon) {
