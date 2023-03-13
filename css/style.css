@@ -29,8 +29,9 @@
     border: none;
 }
 h1 {
-    text-transform: capitalize;
     text-align: center;
+    text-transform: capitalize;
+    
 }
 @media all and (max-width: 420px) {
     h1 {
