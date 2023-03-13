@@ -1,3 +1,42 @@
+function searchPokemon() {
+    let searchInput = document.getElementById("searchInput").value.toLowerCase();
+    let resultDiv = document.getElementById("result");
+    resultDiv.innerHTML = "";
+  
+    if (searchInput === "") {
+      resultDiv.innerHTML = "Please enter a Pokemon name or ID.";
+      return;
+    }
+  
+    let url = `https://pokeapi.co/api/v2/pokemon/${searchInput}`;
+  
+    fetch(url)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Pokemon not found!");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        let pokemonName = data.name.charAt(0).toUpperCase() + data.name.slice(1);
+        let pokemonId = data.id;
+        let pokemonType = data.types.map((type) => type.type.name).join(", ");
+        let pokemonImage = data.sprites.front_default;
+        resultDiv.innerHTML = `
+          <img src="${pokemonImage}" alt="${pokemonName}">
+          <p>Name: ${pokemonName}</p>
+          <p>ID: ${pokemonId}</p>
+          <p>Type: ${pokemonType}</p>
+        `;
+      })
+      .catch((error) => {
+        resultDiv.innerHTML = error.message;
+      });
+  }
+
+
+
+
 let pokemonRepository = (function () {
     let pokemonList = [];
     let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=250";
@@ -8,42 +47,7 @@ let pokemonRepository = (function () {
         return pokemonList;
     }
 
-    function searchPokemon() {
-        const searchInput = document.getElementById("searchInput").value.toLowerCase();
-        const resultDiv = document.getElementById("result");
-        resultDiv.innerHTML = "";
-      
-        if (searchInput === "") {
-          resultDiv.innerHTML = "Please enter a Pokemon name or ID.";
-          return;
-        }
-      
-        const url = `https://pokeapi.co/api/v2/pokemon/${searchInput}`;
-      
-        fetch(url)
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error("Pokemon not found!");
-            }
-            return response.json();
-          })
-          .then((data) => {
-            const pokemonName = data.name.charAt(0).toUpperCase() + data.name.slice(1);
-            const pokemonId = data.id;
-            const pokemonType = data.types.map((type) => type.type.name).join(", ");
-            const pokemonImage = data.sprites.front_default;
-            resultDiv.innerHTML = `
-              <img src="${pokemonImage}" alt="${pokemonName}">
-              <p>Name: ${pokemonName}</p>
-              <p>ID: ${pokemonId}</p>
-              <p>Type: ${pokemonType}</p>
-            `;
-          })
-          .catch((error) => {
-            resultDiv.innerHTML = error.message;
-          });
-      }
-
+    
 
     function addListItem(pokemon) {
         let pokemonListFolder = document.querySelector(".pokemon-list");
@@ -115,6 +119,9 @@ let pokemonRepository = (function () {
                 console.error(e);
             });
     }
+
+
+    
     function loadDetails(item) {
         let url = item.detailsUrl;
         return fetch(url)
@@ -130,6 +137,9 @@ let pokemonRepository = (function () {
                 console.error(e);
             });
     }
+
+
+    
     return { add: add, getAll: getAll, addListItem: addListItem, showDetails: showDetails, loadList: loadList, loadDetails: loadDetails, showModal: showModal };
 })();
 pokemonRepository.loadList().then(function () {
