@@ -4,7 +4,7 @@ function searchPokemon() {
     resultDiv.innerHTML = "";
   
     if (searchInput === "") {
-      resultDiv.innerHTML = "Please enter a Pokemon name or ID.";
+      resultDiv.innerHTML = "Please enter a Pokemon name, ID or Height.";
       return;
     }
   
@@ -20,6 +20,7 @@ function searchPokemon() {
       .then((data) => {
         let pokemonName = data.name.charAt(0).toUpperCase() + data.name.slice(1);
         let pokemonId = data.id;
+        let pokemonHeight = data.height;
         let pokemonType = data.types.map((type) => type.type.name).join(", ");
         let pokemonImage = data.sprites.front_default;
         resultDiv.innerHTML = `
@@ -27,6 +28,7 @@ function searchPokemon() {
           <p>Name: ${pokemonName}</p>
           <p>ID: ${pokemonId}</p>
           <p>Type: ${pokemonType}</p>
+          <p>Height: ${pokemonHeight}</p>
         `;
       })
       .catch((error) => {
@@ -39,7 +41,7 @@ function searchPokemon() {
 
 let pokemonRepository = (function () {
     let pokemonList = [];
-    let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=250";
+    let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=500";
     function add(pokemon) {
         pokemonList.push(pokemon);
     }
