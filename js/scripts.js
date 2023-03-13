@@ -140,6 +140,16 @@ let pokemonRepository = (function () {
             });
     }
 
+    function logBrowserInfo() {
+        if (navigator.userAgentData && navigator.userAgentData.brands && navigator.userAgentData.brands.some(function(brand) { return brand.brand === "Chrome"; })) {
+            console.log('User is using Chrome');
+        } else {
+            console.log('User is not using Chrome');
+        }
+    }
+    
+    logBrowserInfo();
+    
 
     
     return { add: add, getAll: getAll, addListItem: addListItem, showDetails: showDetails, loadList: loadList, loadDetails: loadDetails, showModal: showModal };
@@ -149,3 +159,4 @@ pokemonRepository.loadList().then(function () {
         pokemonRepository.addListItem(pokemon);
     });
 });
+
