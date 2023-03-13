@@ -32,6 +32,45 @@ let pokemonRepository = (function () {
             showModal(pokemon);
         });
     }
+
+
+    function searchPokemon() {
+        const searchInput = document.getElementById("searchInput").value.toLowerCase();
+        const resultDiv = document.getElementById("result");
+        resultDiv.innerHTML = "";
+      
+        if (searchInput === "") {
+          resultDiv.innerHTML = "Please enter a Pokemon name or ID.";
+          return;
+        }
+      
+        const url = `https://pokeapi.co/api/v2/pokemon/${searchInput}`;
+      
+        fetch(url)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Pokemon not found!");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            const pokemonName = data.name.charAt(0).toUpperCase() + data.name.slice(1);
+            const pokemonId = data.id;
+            const pokemonType = data.types.map((type) => type.type.name).join(", ");
+            const pokemonImage = data.sprites.front_default;
+            resultDiv.innerHTML = `
+              <img src="${pokemonImage}" alt="${pokemonName}">
+              <p>Name: ${pokemonName}</p>
+              <p>ID: ${pokemonId}</p>
+              <p>Type: ${pokemonType}</p>
+            `;
+          })
+          .catch((error) => {
+            resultDiv.innerHTML = error.message;
+          });
+      }
+      
+
     function showModal(pokemon) {
         let modalBody = $(".modal-body");
         let modalTitle = $(".modal-title");
