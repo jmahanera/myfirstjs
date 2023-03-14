@@ -55,7 +55,7 @@ h1 {
     margin: 0 auto;
     max-width: 600px;
     text-align: center;
-    color: lightgrey;
+    color: rgb(3, 2, 2);
 }
 h1 {
     font-size: 48px;
@@ -99,6 +99,19 @@ button:hover {
 
   body {
     background-color: #d9d1d1; /* replace with your desired color code */
+  }
+  
+  button {
+    background-color: black;
+    color: #ffce00;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+  }
+  
+  button:hover {
+    background-color: #ffce00;
+    color: black;
   }
   
   
