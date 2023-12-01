@@ -1,117 +1,127 @@
 .btn-primary {
-    height: 10vh;
-    font-size: 20px;
-    border-radius: 8px;
-    font-weight: 700;
-    background-color: grey;
-    border: none;
-    border-right: 0.25vh solid rgba(0, 0, 0, 0.8);
-    border-bottom: 0.5vh solid rgba(0, 0, 0, 0.8);
-    justify-content: center;
+  height: 10vh;
+  font-size: 20px;
+  border-radius: 8px;
+  font-weight: 700;
+  background-color: grey;
+  border: none;
+  border-right: 0.25vh solid rgba(0, 0, 0, 0.8);
+  border-bottom: 0.5vh solid rgba(0, 0, 0, 0.8);
+  justify-content: center;
 }
 .pokemon-button {
-    text-transform: capitalize;
-    background-color: #2208e7;
-    border: none;
-    color: #fff;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 20px;
-    font-weight: 700;
-    margin: 10px;
-    cursor: pointer;
-    transition-duration: 0.4s;
-    border-radius: 12px;
+  text-transform: capitalize;
+  background-color: #2208e7;
+  border: none;
+  color: #fff;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 10px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  border-radius: 12px;
 }
 .list-group-item {
-    border: none;
+  border: none;
 }
 h1 {
-    text-align: center;
-    text-transform: capitalize;
-    color: rgb(151, 18, 18);
+  text-align: center;
+  text-transform: capitalize;
+  color: rgb(151, 18, 18);
 }
 @media all and (max-width: 420px) {
-    h1 {
-        font-size: 27px;
-    }
+  h1 {
+    font-size: 27px;
+  }
 }
 @media all and (max-width: 260px) {
-    .btn-primary {
-        justify-content: center;
-        font-size: 1.5vh;
-        height: 7vh;
-    }
-    h1 {
-        font-size: 18px;
-    }
-    p {
-        font-size: 12px;
-    }
+  .btn-primary {
+    justify-content: center;
+    font-size: 1.5vh;
+    height: 7vh;
+  }
+  h1 {
+    font-size: 18px;
+  }
+  p {
+    font-size: 12px;
+  }
 }
 .container {
-    margin: 0 auto;
-    max-width: 600px;
-    text-align: center;
-    color: rgb(3, 2, 2);
+  margin: 0 auto;
+  max-width: 600px;
+  text-align: center;
+  color: rgb(3, 2, 2);
 }
 h1 {
-    font-size: 48px;
-    margin-bottom: 30px;
+  font-size: 48px;
+  margin-bottom: 30px;
 }
 .form {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 input[type="text"] {
-    padding: 10px;
-    font-size: 18px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 60%;
-    margin-right: 10px;
+  padding: 10px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 60%;
+  margin-right: 10px;
 }
 button {
-    background-color: #4caf50;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 18px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 button:hover {
-    background-color: #45a049;
+  background-color: #45a049;
 }
 #result {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .pokemon-button {
-    background-image: linear-gradient(to right, 
-      red, orange, yellow, green);
-    border: dashed;
-    color: #000000;
-    padding: 10px 20px;
-    border-radius: 5px;
-  }
+  background-image: linear-gradient(to right, red, orange, yellow, green);
+  border: dashed;
+  color: #000000;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
 
-  body {
-    background-color: #d9d1d1; /* replace with your desired color code */
-  }
-  
-  button {
-    background-color: black;
-    color: #ffce00;
-    border: none;
-    padding: 10px 20px;
-    font-size: 18px;
-  }
-  
-  button:hover {
-    background-color: #ffce00;
-    color: black;
-  }
-  
-  
+body {
+  background-color: #d9d1d1; /* replace with your desired color code */
+}
+
+button {
+  background-color: black;
+  color: #ffce00;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+}
+
+button:hover {
+  background-color: #ffce00;
+  color: black;
+}
+
+/* Add this CSS to your existing stylesheet or create a new one */
+#searchInput {
+  color: #495057; /* Set text color */
+}
+
+.input-group-append {
+  display: flex;
+}
+
+#searchBtn {
+  margin-left: -1px; /* Adjust margin to keep the button close to the input box */
+}
